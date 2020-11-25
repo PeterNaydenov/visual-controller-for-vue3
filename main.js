@@ -33,8 +33,7 @@ class VisualController {
                                     return false
                             }
                     }
-                let v = createApp (component, {eBus, ...data}).$mount (`#${id}`)
-                cache[id] = v.$children[0]
+                cache[id] = createApp (component, {eBus, ...data}).mount (`#${id}`)
                 return true
             }} // publish func.
     destroy ( cache ) {
