@@ -10,10 +10,11 @@ npm i @peter.naydenov/visual-controller-for-vue3
 Initialization process:
 ```js
 import { createApp } from 'vue'
+import mitt from 'mitt'
 import VisualController from '@peter.naydenov/visual-controller-for-vue3'
 
 let 
-      eBus = new Vue ()
+      eBus = mitt ()
     , html = new VisualController ({eBus,createApp})
     ;
 // Ready for use...
