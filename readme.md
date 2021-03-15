@@ -106,3 +106,7 @@ html.destroy ( containerID )
 - Every component receive at least one props: [ 'eBus' ].  Use `eBus` to provide screen-events back to the software.
 
 
+Release History
+
+1.0.2 (2021-03-15)
+ [ ] Fix: Only one load per component;

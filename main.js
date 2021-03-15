@@ -4,6 +4,7 @@
  *  Control multiple vue3 apps with a single controller.
  */
 class VisualController {
+
     constructor ( dependencies ) {
               const { eBus } = dependencies;
               const cache = {}  // collect vue components
@@ -15,6 +16,9 @@ class VisualController {
                         , getApp  : this.getApp  ( cache )
                     }
         }
+
+
+
     publish ( dependencies, cache ) {
         return function (component, data, id) {
                 const 
@@ -36,6 +40,9 @@ class VisualController {
                 cache[id] = createApp (component, {eBus, ...data}).mount (`#${id}`)
                 return true
             }} // publish func.
+
+
+
     destroy ( cache ) {
         return function (id) {
                 const htmlKeys = Object.keys(cache);
@@ -43,17 +50,19 @@ class VisualController {
                         let 
                               node = document.getElementById ( id )
                             , item = cache[id]
-                            , { onUnmounted } = item
+                            , unmount = item.$.appContext.app.unmount
                             ;
-
-                        node.innerHTML = ''
+                        unmount ()
                         node.removeAttribute ( 'data-v-app' )
-                        if ( onUnmounted )   onUnmounted ()
+
                         delete cache[id]
                         return true
                     }
                 else    return false
             }} // destroy func.
+
+
+            
     getApp ( cache ) {
         return function (id) {
                 const item = cache[id];
