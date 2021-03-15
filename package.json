@@ -1,17 +1,15 @@
 {
   "name": "@peter.naydenov/visual-controller-for-vue3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use it when single javascript application should control multiple vue3 apps.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/PeterNaydenov/visual-controller-for-vue3.git"
   },
-
   "author": "Peter Naydenov",
   "license": "ISC"
 }
