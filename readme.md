@@ -104,9 +104,34 @@ html.destroy ( containerID )
 ## Other details and requirements
 
 - Every component receive at least one props: [ 'eBus' ].  Use `eBus` to provide screen-events back to the software.
+- Support for Autonomous Custom Elements ( after v.1.1.0 ). Add a prop named `isCustomElement`. Should be a function.
+
+```js
+let isCustomElement = tag => tag === 'plastic-button';   // Will ignore tags 'plastic-button' during vue- render process. 
+
+html.publish ( Hi, { greeting: 'hi', isCustomElement}, 'app' )
+
+//custom elements for AWS Amplify service will look like
+let amplfiyCustom = tag => tag.startsWith ( 'amplify-' )
+html.publish ( Hi, {greeting:'hi', isCustomElement: amplifyCustom}, 'app' )
+```
+ 
+
+
+
+
+
+
+
+
 
 
 ## Release History
+
+
+
+### 1.1.0 ( 2021-04-25)
+ - [x] Support for Autonomous Custom Elements
 
 ### 1.0.2 (2021-03-15)
  - [x] Fix: Only one load per component;

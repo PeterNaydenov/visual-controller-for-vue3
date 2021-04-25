@@ -24,6 +24,7 @@ class VisualController {
                 const 
                         hasKey = this.destroy ( id )
                     , { eBus, createApp } = dependencies
+                    , { isCustomElement } = data
                     ;
                 let node;
                 if ( !component ) {
@@ -37,7 +38,11 @@ class VisualController {
                                     return false
                             }
                     }
-                cache[id] = createApp (component, {eBus, ...data}).mount (`#${id}`)
+                let app = createApp (component, {eBus, ...data});
+
+                if ( isCustomElement )   app.config.isCustomElement = isCustomElement   // Autonomous Custom Elements. Docs: https://v3.vuejs.org/guide/migration/custom-elements-interop.html#autonomous-custom-elements
+                cache[id] = app
+                app.mount (`#${id}`)
                 return true
             }} // publish func.
 
