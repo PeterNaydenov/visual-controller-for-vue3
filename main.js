@@ -38,11 +38,10 @@ class VisualController {
                                     return false
                             }
                     }
+                    
                 let app = createApp (component, {eBus, ...data});
-
                 if ( isCustomElement )   app.config.isCustomElement = isCustomElement   // Autonomous Custom Elements. Docs: https://v3.vuejs.org/guide/migration/custom-elements-interop.html#autonomous-custom-elements
-                cache[id] = app
-                app.mount (`#${id}`)
+                cache[id] = app.mount (`#${id}`)
                 return true
             }} // publish func.
 
