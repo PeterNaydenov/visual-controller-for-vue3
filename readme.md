@@ -130,7 +130,7 @@ html.publish ( Hi, {greeting:'hi', isCustomElement: amplifyCustom}, 'app' )
 
 
 
-### 1.1.0 ( 2021-04-25)
+### 1.1.1 ( 2021-04-25)
  - [x] Support for Autonomous Custom Elements
 
 ### 1.0.2 (2021-03-15)
