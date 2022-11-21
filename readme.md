@@ -1,6 +1,6 @@
 # Visual Controller for Vue 3
 
-
+Tool for building a micro-frontends(MFE) based on Vue 3 components - Start multiple Vue 3 applications on the same HTML page and control them.
 
 Install visual controller:
 ```
@@ -147,7 +147,12 @@ html.publish ( Hi, {greeting:'hi', isCustomElement: amplifyCustom}, 'app' )
 
 
 
+## Extra
 
+Visual Controller has versions for few other front-end frameworks:
+- [React](https://github.com/PeterNaydenov/visual-controller-for-react) 
+- [Vue 2](https://github.com/PeterNaydenov/visual-controller-for-vue)
+- [Svelte](https://github.com/PeterNaydenov/visual-controller-for-svelte3)
 
 
 
