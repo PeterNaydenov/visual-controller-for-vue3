@@ -9,13 +9,13 @@ npm i @peter.naydenov/visual-controller-for-vue3
 
 Initialization process:
 ```js
-import { createApp } from 'vue'
-import mitt from 'mitt'
+import notice from '@peter.naydenov/notice'
 import VisualController from '@peter.naydenov/visual-controller-for-vue3'
 
 let 
-      eBus = mitt ()
-    , html = new VisualController ({eBus,createApp})
+      eBus = notice ()        // Notice docs:  https://github.com/PeterNaydenov/notice
+    , dependencies = { eBus } // Provide to dependency object everything that should be exposed to components 
+    , html = new VisualController ( dependencies )   
     ;
 // Ready for use...
 ```
@@ -28,12 +28,43 @@ html.publish ( Hello, {greeting:'Hi'}, 'app' )
 //arguments are: ( component, props, containerID )
 ```
 
+## Inside of the Components
+*Note: If your component should be displayed only, that section can be skipped.*
+
+If access to your external libraries needed, please inject `dependecies` object. All provided libraries during visualController initialization are available plus one special method `setupUpdates`. The method could set an interface for external component manipulation.
+
+```vue
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
+import { inject, ref } from 'vue'
+
+const { eBus, setupUpdates } = inject ( 'dependencies' );   // Here you can get your dependency object.
+//            ^^^^^^^^^^^^
+//              This method is coming as an extra dependency content. You can define here functions that can 
+//              manipulate your component from outside of vue-app. 
+let message = ref('Vite + Vue');
+
+eBus.emit ( 'check' )
+
+setupUpdates ({   // Provides to visualContoller method 'changeMessage' 
+      changeMessage:  msg => message.value = msg
+    })    
+</script>
+```
+The external call will look like this:
+
+```js
+html.getApp ( 'app' ).changeMessage ( 'New message content' ) 
+```
+
+
 
 ## Visual Controller Methods
 ```js
   publish : 'Render vue app in container. Associate app instance with the container.'
 , getApp  : 'Returns app instance by container name'
 , destroy : 'Destroy app by using container name '
+, has     : 'Checks if app with specific "id" was published'
 ```
 
 
@@ -49,14 +80,7 @@ html.publish ( component, props, containerID )
 
 Example:
 ```js
- import mitt from 'mitt
- import { createApp } from 'vue'
-
- let 
-      eBus = mitt ()
-    , html = new VisualController ({eBus, createApp})
-    ;
-
+ let html = new VisualController ();
  html.publish ( Hi, { greeting: 'hi'}, 'app' )
 ```
 
@@ -67,7 +91,7 @@ Render component 'Hi' with prop 'greeting' and render it in html element with id
 
 
 ### VisualController.getApp ()
-Returns vue-app associated with a container. Provides access to the methods of parent vue-app component.
+Returns the library of functions provided from method `setupUpdates`. If setupUpdates was not called from the vue-app, result will be an empty object.
 
 ```js
  let controls = html.getApp ( containerID )
@@ -78,13 +102,17 @@ Example:
 ```js
 let 
       id = 'videoControls'
-    , controls = html.getApp ( id )
+    , controls = html.getApp ( id ) 
     ;
-if ( controls )   controls.pushPlay () // use methods of the component
+    // if app with 'id' doesn't exist -> returns false, 
+    // if app exists and 'setupUpdates' was not used -> returns {}
+    // in our case -> returns { changeMessage:f }
+if ( controls )   controls.changeMessage ( 'Hello from outside' )
 else { // component is not available
        console.error ( `App for id:"${id}" is not available` )
    }
 ```
+
 If visual controller(html) has a vue app associated with this name will return it. Otherwise will return **false**.
 
 
@@ -103,7 +131,6 @@ html.destroy ( containerID )
 
 ## Other details and requirements
 
-- Every component receive at least one props: [ 'eBus' ].  Use `eBus` to provide screen-events back to the software.
 - Support for Autonomous Custom Elements ( after v.1.1.0 ). Add a prop named `isCustomElement`. Should be a function.
 
 ```js
@@ -128,7 +155,9 @@ html.publish ( Hi, {greeting:'hi', isCustomElement: amplifyCustom}, 'app' )
 
 ## Release History
 
-
+### 2.0.0 ( 2022-11-21)
+- [x] Full rewrite of the library;
+- [x] Method 'has' was added;
 
 ### 1.1.1 ( 2021-04-25)
  - [x] Support for Autonomous Custom Elements
