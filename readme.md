@@ -163,6 +163,7 @@ Visual Controller has versions for few other front-end frameworks:
 ### 2.0.0 ( 2022-11-21)
 - [x] Full rewrite of the library;
 - [x] Method 'has' was added;
+- [x] Support for SSR hydration;
 
 ### 1.1.1 ( 2021-04-25)
  - [x] Support for Autonomous Custom Elements
