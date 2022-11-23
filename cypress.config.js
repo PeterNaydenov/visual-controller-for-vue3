@@ -1,6 +1,6 @@
-const { defineConfig } = require("cypress");
+import cfg from "cypress"
 
-module.exports = defineConfig({
+export default cfg.defineConfig({
   component: {
     devServer: {
       framework: "vue",
