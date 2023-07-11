@@ -21,7 +21,7 @@
   "devDependencies": {
     "@peter.naydenov/notice": "^2.0.0",
     "@vitejs/plugin-vue": "^4.2.3",
-    "cypress": "^12.17.0",
+    "cypress": "^12.17.1",
     "vite": "^4.4.2"
   },
   "author": "Peter Naydenov",
