@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@peter.naydenov/notice": "^2.1.0",
-    "@vitejs/plugin-vue": "^4.3.1",
+    "@vitejs/plugin-vue": "^4.3.4",
     "cypress": "^12.17.4",
     "vite": "^4.4.9"
   },
