@@ -160,6 +160,18 @@ Visual Controller has versions for few other front-end frameworks:
 
 ## Release History
 
+
+
+### 2.0.2 ( 2023-10-22)
+- [x] Dependencies update. Vue - v.3.3.6
+
+
+### 2.0.1 (2023-10-21)
+- [x] Dependencies update. ask-for-css - v.1.4.0
+
+
+
+
 ### 2.0.0 ( 2022-11-21)
 - [x] Full rewrite of the library;
 - [x] Method 'has' was added;
