@@ -1,6 +1,6 @@
 {
   "name": "@peter.naydenov/visual-controller-for-vue3",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Use it when single javascript application should control multiple vue3 apps.",
   "main": "src/main.js",
   "type": "module",
