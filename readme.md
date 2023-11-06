@@ -162,8 +162,15 @@ Visual Controller has versions for few other front-end frameworks:
 
 
 
+### 2.0.3 ( 2023-11-06)
+- [x] Dependencies update. Vue - v.3.3.7
+- [x] Dependencies update. ask-for-promise - v.1.5.0
+
+
+
 ### 2.0.2 ( 2023-10-22)
 - [x] Dependencies update. Vue - v.3.3.6
+
 
 
 ### 2.0.1 (2023-10-21)
