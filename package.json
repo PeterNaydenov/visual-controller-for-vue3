@@ -16,12 +16,12 @@
   },
   "dependencies": {
     "ask-for-promise": "^1.5.0",
-    "vue": "^3.3.13"
+    "vue": "^3.4.3"
   },
   "devDependencies": {
     "@peter.naydenov/notice": "^2.2.2",
-    "@vitejs/plugin-vue": "^5.0.0",
-    "cypress": "^13.6.1",
+    "@vitejs/plugin-vue": "^5.0.2",
+    "cypress": "^13.6.2",
     "vite": "^5.0.10"
   },
   "author": "Peter Naydenov",
