@@ -15,14 +15,14 @@
     "url": "https://github.com/PeterNaydenov/visual-controller-for-vue3.git"
   },
   "dependencies": {
-    "ask-for-promise": "^1.5.0",
-    "vue": "^3.4.4"
+    "ask-for-promise": "^2.0.3",
+    "vue": "^3.4.20"
   },
   "devDependencies": {
-    "@peter.naydenov/notice": "^2.2.2",
-    "@vitejs/plugin-vue": "^5.0.2",
-    "cypress": "^13.6.2",
-    "vite": "^5.0.10"
+    "@peter.naydenov/notice": "^2.2.3",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "cypress": "^13.6.6",
+    "vite": "^5.1.4"
   },
   "author": "Peter Naydenov",
   "license": "MIT"
