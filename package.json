@@ -4,11 +4,21 @@
   "version": "2.0.4",
   "license": "MIT",
   "author": "Peter Naydenov",
-  "main": "src/main.js",
+  "main": "./dist/visual-controller-for-vue3.umd.js",
   "type": "module",
+  "exports": {
+    ".": {
+            "import": "./dist/visual-controller-for-vue3.esm.mjs",
+            "require": "./dist/visual-controller-for-vue3.cjs",
+            "default": "./dist/visual-controller-for-vue3.umd.js"
+          },
+          "./package.json": "./package.json",
+          "./dist/*": "./dist/*",
+          "./src/*": "./src/*"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "rollup -c",
     "preview": "vite preview",
     "test": "cypress run --component --browser chrome"
   },
@@ -22,8 +32,12 @@
   },
   "devDependencies": {
     "@peter.naydenov/notice": "^2.2.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^5.0.4",
     "cypress": "^13.6.6",
+    "rollup": "^4.13.0",
     "vite": "^5.1.6"
   }
 }

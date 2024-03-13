@@ -161,6 +161,14 @@ Visual Controller has versions for few other front-end frameworks:
 ## Release History
 
 
+
+### 2.1.0 ( 2024-03-13)
+- [x]  Folder 'dist' was added to the project. Includes commonjs, umd and esm versions of the library;
+- [x] Package.json: "exports" section was added. Allows you to use package as commonjs or es6 module without additional configuration;
+- [x] Rollup was added to the project. Used to build the library versions;
+
+
+
 ### 2.0.4 ( 2023-11-10)
 - [x] Dependencies update. Vue - v.3.3.8;
 - [x] Dev. dependencies update. Vite - v.4.5.0;
