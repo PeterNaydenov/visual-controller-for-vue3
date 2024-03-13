@@ -1,7 +1,9 @@
 {
   "name": "@peter.naydenov/visual-controller-for-vue3",
-  "version": "2.0.4",
   "description": "Use it when single javascript application should control multiple vue3 apps.",
+  "version": "2.0.4",
+  "license": "MIT",
+  "author": "Peter Naydenov",
   "main": "src/main.js",
   "type": "module",
   "scripts": {
@@ -16,14 +18,12 @@
   },
   "dependencies": {
     "ask-for-promise": "^2.0.3",
-    "vue": "^3.4.20"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@peter.naydenov/notice": "^2.2.3",
     "@vitejs/plugin-vue": "^5.0.4",
     "cypress": "^13.6.6",
-    "vite": "^5.1.4"
-  },
-  "author": "Peter Naydenov",
-  "license": "MIT"
+    "vite": "^5.1.6"
+  }
 }
