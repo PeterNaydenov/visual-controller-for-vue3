@@ -11,6 +11,8 @@ Initialization process:
 ```js
 import notice from '@peter.naydenov/notice'
 import VisualController from '@peter.naydenov/visual-controller-for-vue3'
+// if you are using commonjs:
+// const VisualController = require ( '@peter.naydenov/visual-controller-for-vue3' )
 
 let 
       eBus = notice ()        // Notice docs:  https://github.com/PeterNaydenov/notice
