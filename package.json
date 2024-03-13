@@ -1,20 +1,20 @@
 {
   "name": "@peter.naydenov/visual-controller-for-vue3",
   "description": "Use it when single javascript application should control multiple vue3 apps.",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "license": "MIT",
   "author": "Peter Naydenov",
   "main": "./dist/visual-controller-for-vue3.umd.js",
   "type": "module",
   "exports": {
     ".": {
-            "import": "./dist/visual-controller-for-vue3.esm.mjs",
-            "require": "./dist/visual-controller-for-vue3.cjs",
-            "default": "./dist/visual-controller-for-vue3.umd.js"
-          },
-          "./package.json": "./package.json",
-          "./dist/*": "./dist/*",
-          "./src/*": "./src/*"
+      "import": "./dist/visual-controller-for-vue3.esm.mjs",
+      "require": "./dist/visual-controller-for-vue3.cjs",
+      "default": "./dist/visual-controller-for-vue3.umd.js"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*"
   },
   "scripts": {
     "dev": "vite",
