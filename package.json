@@ -1,7 +1,7 @@
 {
   "name": "@peter.naydenov/visual-controller-for-vue3",
   "description": "Use it when single javascript application should control multiple vue3 apps.",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "license": "MIT",
   "author": "Peter Naydenov",
   "main": "./dist/visual-controller-for-vue3.umd.js",
