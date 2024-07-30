@@ -10,8 +10,13 @@ export default [
 		output: {
 			name: 'walk',
 			file: 'dist/visual-controller-for-vue3.umd.js',
-			format: 'umd'
+			format: 'umd',
+			globals : {
+				"vue": "vue"	,
+				"ask-for-promise": "askForPromise"
+			}
 		},
+		external: ['vue', 'ask-for-promise'],
 		plugins: [
 			resolve(), // so Rollup can find `ms`
 			commonjs() // so Rollup can convert `ms` to an ES module
