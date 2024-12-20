@@ -162,6 +162,13 @@ Visual Controller has versions for few other front-end frameworks:
 
 ## Release History
 
+
+
+### 2.1.4 ( 2024-12-20)
+- [x] Dependencies update. Ask for Promise - v.3.0.1;
+
+
+
 ### 2.1.1 ( 2024-06-06)
 - [x] Dependencies update. Vue - v.3.4.27;
 - [x] Dev dependencies update. Vite - v.5.2.12, Cypress - v.13.11.0, Rollup - v.4.18.0;
