@@ -31,7 +31,7 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@peter.naydenov/notice": "^2.3.2",
+    "@peter.naydenov/notice": "^2.4.0",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
