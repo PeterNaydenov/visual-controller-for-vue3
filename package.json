@@ -37,7 +37,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "cypress": "^14.0.3",
-    "rollup": "^4.34.6",
+    "rollup": "^4.34.8",
     "vite": "^6.1.1"
   }
 }
