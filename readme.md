@@ -163,6 +163,12 @@ Visual Controller has versions for few other front-end frameworks:
 ## Release History
 
 
+
+### 2.1.7 (2025-10-30)
+- [x] Dependencies update. Ask for Promise - v.3.1.0;
+
+
+
 ### 2.1.6 (2025-07-18)
 - [x] Vue was moved to devDependencies. Update to v.3.5.18
 
