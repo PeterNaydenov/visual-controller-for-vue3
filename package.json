@@ -35,7 +35,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^6.0.1",
-    "cypress": "^15.3.0",
+    "cypress": "^15.4.0",
     "rollup": "^4.52.5",
     "vite": "^7.1.6",
     "vue": "^3.5.22"
