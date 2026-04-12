@@ -133,7 +133,7 @@ html.destroy ( containerID )
 
 ## Other details and requirements
 
-- Support for Autonomous Custom Elements ( after v.1.1.0 ). Add a prop named `isCustomElement`. Should be a function.
+- Support for Autonomous Custom Elements ( after v.3.3.x ). Add a prop named `isCustomElement`. Should be a function.
 
 ```js
 let isCustomElement = tag => tag === 'plastic-button';   // Will ignore tags 'plastic-button' during vue- render process. 
@@ -161,6 +161,13 @@ Visual Controller has versions for few other front-end frameworks:
 
 
 ## Release History
+
+
+
+### 2.2.0 (2026-04-12)
+- [x] Convert from 'class' to 'functional' approach;
+- [x] Adding 'jsdoc' description to the library;
+- [x] Updated Vue config to use compilerOptions.isCustomElement (non-deprecated API in Vue 3.3+);
 
 
 
