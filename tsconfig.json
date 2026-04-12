@@ -6,6 +6,7 @@
     "declarationDir": "./dist/types",
     "emitDeclarationOnly": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "allowJs": true,
     "checkJs": false,
     "skipLibCheck": true,
