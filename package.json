@@ -30,7 +30,7 @@
     "ask-for-promise": "^3.1.0"
   },
   "devDependencies": {
-    "@peter.naydenov/notice": "^2.4.1",
+    "@peter.naydenov/notice": "^2.4.2",
     "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
