@@ -168,6 +168,8 @@ Visual Controller has versions for few other front-end frameworks:
 - [x] Convert from 'class' to 'functional' approach;
 - [x] Adding 'jsdoc' description to the library;
 - [x] Updated Vue config to use compilerOptions.isCustomElement (non-deprecated API in Vue 3.3+);
+- [x] Fix: npm run dev;
+- [x] Add test coverage;
 
 
 
