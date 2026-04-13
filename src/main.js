@@ -8,7 +8,11 @@ import askForPromise from 'ask-for-promise'
 import { createApp, createSSRApp } from 'vue'
 
 
-
+/**
+ *  @function VisualController - Visual Controller for Vue 3
+ *  @param {Object} [dependencies={}] - Optional external dependencies to inject into Vue apps
+ *  @returns {Object} Controller instance with publish, destroy, getApp, and has methods
+ */
 function VisualController ( dependencies = {} ) {
     /** @type {Object.<string, any>} */
     const cache = {}  // collect vue-component update interfaces
@@ -19,12 +23,12 @@ function VisualController ( dependencies = {} ) {
 
 
     /**
-     * Publish vue app in container.
-     * @param {Object} component Vue component
-     * @param {Object} data Data object
-     * @param {boolean} [data.isCustomElement] Whether it is a custom element
-     * @param {string} id Id of the container where vue-app will live.
-     * @returns {Promise<Object>} Promise with an object containing update interface methods
+     * Publish vue app in a container element.
+     * @param {Object} component - Vue component to render
+     * @param {Object} [data={}] - Configuration data
+     * @param {boolean} [data.isCustomElement] - Whether to treat all tags as custom elements
+     * @param {string} id - DOM element id where the app will be mounted
+     * @returns {Promise<Object>} Promise resolving to an object with update interface methods (e.g., changeMessage)
      */
     function publish ( component, data={}, id ) {
                     
@@ -76,8 +80,8 @@ function VisualController ( dependencies = {} ) {
 
 
     /**
-     * Destroy app by using container name
-     * @param {string} id Id of the container where vue-app lives.
+     * Destroy a published app by container id.
+     * @param {string} id - Container id
      * @returns {boolean} True if app was destroyed, false otherwise.
      */
     function destroy  ( id ) {
@@ -97,9 +101,9 @@ function VisualController ( dependencies = {} ) {
 
             
     /**
-     * Returns app instance by container name
-     * @param {string} id Id of the container where vue-app lives.
-     * @returns {object|false} App instance if found, false otherwise.
+     * Returns the update interface for a published app.
+     * @param {string} id - Container id
+     * @returns {Object|false} Update interface object if published, false otherwise
      */
     function getApp (id) {
                 const item = cache[id];
@@ -113,9 +117,9 @@ function VisualController ( dependencies = {} ) {
 
 
     /**
-     * Check if app with specific "id" was published
-     * @param {string} id Id of the container where vue-app lives.
-     * @returns {boolean} True if app with "id" was published, false otherwise.
+     * Check if an app with specific id has been published.
+     * @param {string} id - Container id
+     * @returns {boolean} True if app is published, false otherwise.
      */
     function has ( id ) {
             return cache[id] ? true : false

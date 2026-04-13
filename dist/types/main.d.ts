@@ -1,9 +1,7 @@
 export default VisualController;
-declare function VisualController(dependencies?: {}): {
-    publish: (component: any, data: {
-        isCustomElement?: boolean;
-    }, id: string) => Promise<any>;
-    destroy: (id: string) => boolean;
-    getApp: (id: string) => object | false;
-    has: (id: string) => boolean;
-};
+/**
+ *  @function VisualController - Visual Controller for Vue 3
+ *  @param {Object} [dependencies={}] - Optional external dependencies to inject into Vue apps
+ *  @returns {Object} Controller instance with publish, destroy, getApp, and has methods
+ */
+declare function VisualController(dependencies?: any): any;
