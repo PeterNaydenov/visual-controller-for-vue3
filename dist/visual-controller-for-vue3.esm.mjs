@@ -1,1 +1,45 @@
-import e from"ask-for-promise";import{createSSRApp as n,createApp as o}from"vue";function t(t={}){const r={};function i(e){if(r[e]){const n=document.getElementById(e);if(!n)return!1;return(0,n.__vue_app__.unmount)(),n.removeAttribute("data-v-app"),delete r[e],!0}return!1}return t={...t,createApp:o,createSSRApp:n},{publish:function(p,s={},u){const m="string"==typeof u,{isCustomElement:c}=s,d=e();if(!p)return console.error("Error: Component is undefined"),d.done(!1),d.promise;m&&i(u);let f,l=document.getElementById(u);return l?(f=""===l.innerHTML.trim()?o(p,s):n(p,s),r[u]={},f.provide("dependencies",{...t,setupUpdates:e=>{r[u]=e}}),c&&(f.config.compilerOptions=f.config.compilerOptions||{},f.config.compilerOptions.isCustomElement=e=>c),f.mount(`#${u}`),d.done(r[u]),d.promise):(console.error(`Can't find node with id: "${u}"`),d.done(!1),d.promise)},destroy:i,getApp:function(e){const n=r[e];return n||(console.error(`App with id: "${e}" was not found.`),!1)},has:function(e){return!!r[e]}}}export{t as default};
+import e from "ask-for-promise";
+import { createApp as t, createSSRApp as n } from "vue";
+//#region src/main.js
+function r(r = {}) {
+	let i = {};
+	r = {
+		...r,
+		createApp: t,
+		createSSRApp: n
+	};
+	function a(a, s = {}, c) {
+		let l = typeof c == "string", { isCustomElement: u } = s, d = e();
+		if (!a) return console.error("Error: Component is undefined"), d.done(!1), d.promise;
+		l && o(c);
+		let f = document.getElementById(c), p, m = (e) => {
+			i[c] = e;
+		};
+		return f ? (p = f.innerHTML.trim() === "" ? t(a, s) : n(a, s), i[c] = {}, p.provide("dependencies", {
+			...r,
+			setupUpdates: m
+		}), u && (p.config.compilerOptions = p.config.compilerOptions || {}, p.config.compilerOptions.isCustomElement = (e) => u), p.mount(`#${c}`), d.done(i[c]), d.promise) : (console.error(`Can't find node with id: "${c}"`), d.done(!1), d.promise);
+	}
+	function o(e) {
+		if (i[e]) {
+			let t = document.getElementById(e);
+			if (!t) return !1;
+			let n = t.__vue_app__.unmount;
+			return n(), t.removeAttribute("data-v-app"), delete i[e], !0;
+		} else return !1;
+	}
+	function s(e) {
+		return i[e] || (console.error(`App with id: "${e}" was not found.`), !1);
+	}
+	function c(e) {
+		return !!i[e];
+	}
+	return {
+		publish: a,
+		destroy: o,
+		getApp: s,
+		has: c
+	};
+}
+//#endregion
+export { r as default };
