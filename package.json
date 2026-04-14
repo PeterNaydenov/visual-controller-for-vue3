@@ -4,7 +4,7 @@
   "version": "2.2.1",
   "license": "MIT",
   "author": "Peter Naydenov",
-  "main": "./dist/visual-controller-for-vue3.umd.js",
+  "main": "./src/main.js",
   "types": "./dist/types/main.d.ts",
   "type": "module",
   "exports": {
