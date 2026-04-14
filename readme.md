@@ -163,6 +163,15 @@ Visual Controller has versions for few other front-end frameworks:
 ## Release History
 
 
+
+### 2.3.0 (2026-04-14)
+- [x] Demo assets are moved from /src to /demo folder;
+- [x] Removing 'cypress' folder from repo;
+- [x] Build script make also typescript types;
+- [x] Moving from rollup to vite(internal rolldown);
+
+
+
 ### 2.2.1 (2026-04-13)
 - [x] Extend types;
 
