@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rollup -c",
+    "build": "rollup -c && npm run types",
     "preview": "vite preview",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
