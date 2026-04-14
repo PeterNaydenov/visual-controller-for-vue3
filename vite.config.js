@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig(() => ({
+  publicDir: '',
   build: {
     lib: {
       entry: 'src/main.js',
