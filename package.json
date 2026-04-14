@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Peter Naydenov",
   "main": "./src/main.js",
-  "types": "./dist/types/main.d.ts",
+  "types": "./dist/main.d.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rollup -c && npm run types",
+    "build": "vite build && npm run types",
     "preview": "vite preview",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
@@ -34,13 +34,9 @@
   },
   "devDependencies": {
     "@peter.naydenov/notice": "^2.4.2",
-    "@rollup/plugin-commonjs": "^29.0.2",
-    "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^1.0.0",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^29.0.2",
-    "rollup": "^4.60.1",
     "typescript": "^6.0.2",
     "vite": "^8.0.8",
     "vitest": "^4.1.4",
