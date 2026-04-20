@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visual Controller Demo</title>
+    <title>Visual Controller for Vue3 - Demo</title>
+    <style>
+      body { font-family: system-ui, sans-serif; padding: 20px; }
+      .hello { padding: 10px; background: #f0f0f0; border-radius: 4px; }
+      .hello h2 { margin: 0 0 10px; }
+      .hello button { margin-right: 5px; }
+      #controls { margin: 10px 0; }
+      #controls button { margin-right: 5px; padding: 5px 10px; }
+      #result { margin-top: 10px; padding: 10px; background: #e0f0e0; }
+    </style>
   </head>
   <body>
+    <h1>Visual Controller for Vue3 - Demo</h1>
     <div id="app"></div>
-    <script type="module">
-      import VisualController from './src/main.js'
-      import App from './demo/App.vue'
-      import notice from '@peter.naydenov/notice'
-      
-      const eBus = notice();
-      const vc = new VisualController({ eBus })      
-      vc.publish ( App, {}, 'app')
-    </script>
+    <div id="controls">
+      <button id="updateMsg">Update Message</button>
+      <button id="increment">Increment</button>
+      <button id="getCount">Get Count</button>
+      <button id="destroy">Destroy</button>
+    </div>
+    <div id="result">Result: <span id="resultText">-</span></div>
+    <div id="hasResult">Has app: <span id="hasText">-</span></div>
+
+    <script type="module" src="/demo/main.js"></script>
   </body>
 </html>
