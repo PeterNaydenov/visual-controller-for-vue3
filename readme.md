@@ -152,9 +152,13 @@ html.publish ( Hi, {greeting:'hi', isCustomElement: amplifyCustom}, 'app' )
 ## Extra
 
 Visual Controller has versions for few other front-end frameworks:
-- [React](https://github.com/PeterNaydenov/visual-controller-for-react) 
+- [React](https://github.com/PeterNaydenov/visual-controller-for-react)
+- [Preact](https://github.com/PeterNaydenov/visual-controller-for-preact)
+- [Svelte 5](https://github.com/PeterNaydenov/visual-controller-for-svelte5)
+- [Solid](https://github.com/PeterNaydenov/visual-controller-for-solid)
 - [Vue 2](https://github.com/PeterNaydenov/visual-controller-for-vue)
-- [Svelte](https://github.com/PeterNaydenov/visual-controller-for-svelte3)
+- [Svelte 3 and 4](https://github.com/PeterNaydenov/visual-controller-for-svelte3)
+
 
 
 
