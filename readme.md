@@ -153,9 +153,10 @@ html.publish ( Hi, {greeting:'hi', isCustomElement: amplifyCustom}, 'app' )
 
 Visual Controller has versions for few other front-end frameworks:
 - [React](https://github.com/PeterNaydenov/visual-controller-for-react)
-- [Preact](https://github.com/PeterNaydenov/visual-controller-for-preact)
 - [Svelte 5](https://github.com/PeterNaydenov/visual-controller-for-svelte5)
+- [Preact](https://github.com/PeterNaydenov/visual-controller-for-preact)
 - [Solid](https://github.com/PeterNaydenov/visual-controller-for-solid)
+- [Lit](https://github.com/PeterNaydenov/visual-controller-for-lit)
 - [Vue 2](https://github.com/PeterNaydenov/visual-controller-for-vue)
 - [Svelte 3 and 4](https://github.com/PeterNaydenov/visual-controller-for-svelte3)
 
