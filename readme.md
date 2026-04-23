@@ -169,6 +169,11 @@ Visual Controller has versions for few other front-end frameworks:
 
 
 
+### 2.3.1 (2026-04-23)
+- [x] Dependencies update. Ask-for-Promise - v.3.2.1;
+
+
+
 ### 2.3.0 (2026-04-14)
 - [x] Demo assets are moved from /src to /demo folder;
 - [x] Removing 'cypress' folder from repo;
