@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@peter.naydenov/notice": "^2.5.0",
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vue/test-utils": "^2.4.11",
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
