@@ -22,7 +22,7 @@
     "build": "vite build && npm run types",
     "preview": "vite preview",
     "test": "vitest run",
-    "coverage": "vitest run --coverage",
+    "cover": "vitest run --coverage",
     "types": "tsc"
   },
   "repository": {
