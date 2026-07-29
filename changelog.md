@@ -2,6 +2,11 @@
 
 
 
+### 2.3.3 (2026-07-29)
+- [x] Dev dependencies update. Remove the @vue/test-utils;
+
+
+
 ### 2.3.2 (2026-07-22)
 - [x] Dependencies update. Ask-for-Promise - v.3.2.0;
 - [x] Dev dependencies update. @peter.naydenov/notice - v.2.5.0;
