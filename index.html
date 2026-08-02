@@ -7,25 +7,33 @@
     <title>Visual Controller for Vue3 - Demo</title>
     <style>
       body { font-family: system-ui, sans-serif; padding: 20px; }
-      .hello { padding: 10px; background: #f0f0f0; border-radius: 4px; }
-      .hello h2 { margin: 0 0 10px; }
-      .hello button { margin-right: 5px; }
+      main { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin: 20px 0; }
+      .panel { padding: 10px; background: #f0f0f0; border-radius: 4px; }
+      .panel h3 { margin: 0 0 10px; }
+      button { margin-right: 5px; padding: 5px 10px; }
       #controls { margin: 10px 0; }
-      #controls button { margin-right: 5px; padding: 5px 10px; }
       #result { margin-top: 10px; padding: 10px; background: #e0f0e0; }
     </style>
   </head>
   <body>
-    <h1>Visual Controller for Vue3 - Demo</h1>
-    <div id="app"></div>
+    <h1>Visual Controller for Vue3 — v3 Region Demo</h1>
+    <p>Two regions live inside one <code>&lt;main&gt;</code>. No <code>&lt;div id="..."&gt;</code> wrappers.</p>
+
+    <main id="main">
+      <h2>Static page heading</h2>
+    </main>
+
     <div id="controls">
-      <button id="updateMsg">Update Message</button>
-      <button id="increment">Increment</button>
-      <button id="getCount">Get Count</button>
-      <button id="destroy">Destroy</button>
+      <button id="updateHeader">Update header message</button>
+      <button id="incrementHeader">Increment header count</button>
+      <button id="swapApps">Swap apps</button>
+      <button id="destroyHeader">Destroy header</button>
+      <button id="destroySidebar">Destroy sidebar</button>
+      <button id="resetAll">Reset all</button>
     </div>
+
     <div id="result">Result: <span id="resultText">-</span></div>
-    <div id="hasResult">Has app: <span id="hasText">-</span></div>
+    <div id="hasResult">Aliases: <span id="aliasesList">-</span></div>
 
     <script type="module" src="/demo/main.js"></script>
   </body>
