@@ -1,5 +1,10 @@
 # Visual Controller for Vue 3
 
+![version](https://img.shields.io/github/package-json/v/PeterNaydenov/visual-controller-for-vue3)
+![license](https://img.shields.io/github/license/PeterNaydenov/visual-controller-for-vue3)
+![npm downloads](https://img.shields.io/npm/dw/@peter.naydenov/visual-controller-for-vue3)
+![bundle size](https://img.shields.io/bundlephobia/minzip/@peter.naydenov/visual-controller-for-vue3)
+
 Run multiple Vue 3 apps on the same page from a single controller. Each app gets its own region defined by invisible markers — **no DOM ids, no wrapper elements, no `getElementById` calls**.
 
 ```js
