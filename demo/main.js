@@ -1,49 +1,99 @@
 import VisualController from '/src/main.js'
-import Hello from '/demo/hello.vue'
+import HeaderApp from '/demo/header.vue'
+import SidebarApp from '/demo/sidebar.vue'
 
-const 
-  html = new VisualController({})
-  , hasTextBlock = document.getElementById ( 'hasText' )
-  , updateMsgBtn = document.getElementById ( 'updateMsg' )
-  , incrementBtn = document.getElementById ( 'increment' )
-  , getCountBtn = document.getElementById ( 'getCount' )
-  , destroyBtn = document.getElementById ( 'destroy' )
-  , resultTextBlock = document.getElementById ( 'resultText' )
-  ;
+const
+      html              = new VisualController({})
+    , main             = document.getElementById ( 'main' )
+    , updateHeaderBtn  = document.getElementById ( 'updateHeader' )
+    , incrementBtn     = document.getElementById ( 'incrementHeader' )
+    , swapBtn          = document.getElementById ( 'swapApps' )
+    , destroyHeaderBtn = document.getElementById ( 'destroyHeader' )
+    , destroySidebarBtn = document.getElementById ( 'destroySidebar' )
+    , resetBtn         = document.getElementById ( 'resetAll' )
+    , resultText       = document.getElementById ( 'resultText' )
+    , aliasesList      = document.getElementById ( 'aliasesList' )
+    ;
+
+function refreshAliases () {
+        aliasesList.textContent = html.list ().join ( ', ' ) || '-'
+    }
 
 
-html.publish ( Hello, { greeting: 'Hi from Vue3!' }, 'app')
+// 1. Define two regions inside one parent. No <div id="..."> wrappers.
+html.set ( ( { start, end } ) => {
+        main.append ( start, end )
+        return 'header'
+    })
+
+html.set ( ( { start, end } ) => {
+        main.append ( start, end )
+        return 'sidebar'
+    })
+
+refreshAliases ()
+
+
+// 2. Publish apps into the regions.
+html.publish ( 'header', HeaderApp )
     .then ( updates => {
-            console.log ( 'App loaded with updates:', updates )
-            hasTextBlock.textContent = html.has('app')
+            resultText.textContent = 'Header published: ' + JSON.stringify ( Object.keys ( updates ) )
+            refreshAliases ()
+        })
+
+html.publish ( 'sidebar', SidebarApp, { title: 'Items' } )
+    .then ( updates => {
+            console.log ( 'Sidebar published:', updates )
+            refreshAliases ()
         })
 
 
 
- updateMsgBtn.addEventListener ( 'click', () => {
-            const app = html.getApp ( 'app' )
-            if (app)   app.changeMessage ( `Updated at ${new Date().toLocaleTimeString()}` )
-      })
+updateHeaderBtn.addEventListener ( 'click', () => {
+        const app = html.getApp ( 'header' )
+        if ( app )   app.changeMessage ( `Header updated at ${new Date().toLocaleTimeString()}` )
+    })
+
+incrementBtn.addEventListener ( 'click', () => {
+        const app = html.getApp ( 'header' )
+        if ( app )   app.increment ()
+    })
 
 
+let swapped = false
+swapBtn.addEventListener ( 'click', () => {
+        swapped = !swapped
+        // Exchange the apps between the two regions. Initial state:
+        // header hosts HeaderApp, sidebar hosts SidebarApp. After swap,
+        // header hosts SidebarApp and sidebar hosts HeaderApp. Toggle again
+        // to restore.
+        const [ headerApp, sidebarApp ] = swapped
+                ? [ SidebarApp, HeaderApp ]
+                : [ HeaderApp, SidebarApp ]
+        html.publish ( 'header', headerApp )
+        html.publish ( 'sidebar', sidebarApp )
+        resultText.textContent = swapped
+                ? 'Swapped: header and sidebar exchanged apps'
+                : 'Restored: header and sidebar back to initial apps'
+    })
 
- incrementBtn.addEventListener ( 'click', () => {
-            const app = html.getApp('app')
-            if (app) app.increment()
-      })
+
+destroyHeaderBtn.addEventListener ( 'click', () => {
+        const ok = html.destroy ( 'header' )
+        resultText.textContent = 'Destroy header: ' + ok
+        refreshAliases ()
+    })
 
 
-
-getCountBtn.addEventListener ( 'click', () => {
-            const app = html.getApp ( 'app' )
-            if ( app ) {
-                resultTextBlock.textContent = app.getCount ()
-              }
-      })
+destroySidebarBtn.addEventListener ( 'click', () => {
+        const ok = html.destroy ( 'sidebar' )
+        resultText.textContent = 'Destroy sidebar: ' + ok
+        refreshAliases ()
+    })
 
 
-destroyBtn.addEventListener ( 'click', () => {
-            const result = html.destroy ( 'app' )
-            resultTextBlock.textContent = 'Destroyed: ' + result
-            hasTextBlock.textContent = html.has ( 'app' )
-      })
+resetBtn.addEventListener ( 'click', () => {
+        html.reset ()
+        resultText.textContent = 'Reset all'
+        refreshAliases ()
+    })
