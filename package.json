@@ -33,7 +33,7 @@
     "vue": "^3.0.0"
   },
   "dependencies": {
-    "ask-for-promise": "^3.2.0"
+    "ask-for-promise": "^3.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.10",
