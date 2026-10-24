@@ -2,6 +2,11 @@
 
 
 
+### 3.0.1 (2026-10-24)
+- [x] Dependencies update. Ask-for-Promise - v.3.2.1;
+
+
+
 ### 3.0.0 (2026-08-01)
 - [x] **Breaking change.** v3 is region-only. The `id`-based API (`publish(component, data, containerID)` etc.) is removed. Regions are defined via the new `set` method, which mirrors `dim.set` exactly.
 - [x] New API: `set`, `publish(alias, component, data?, extraParams?)`, `destroy`, `has`, `getApp`, `isEmpty`, `list`, `reset`.
