@@ -341,6 +341,32 @@ html.publish('header', MyComponent, { isCustomElement: true })
 ```
 
 
+
+### Type declarations
+
+The package ships TypeScript declarations. They are generated from the JSDoc in `src/main.js`, so the docs and the types cannot drift apart.
+
+```bash
+npm run types    # regenerate dist/main.d.ts + dist/index.d.ts from the JSDoc
+```
+
+What lands in `dist/`:
+
+| File | What it is |
+| --- | --- |
+| `dist/main.d.ts` | The instance types (`VisualControllerInstance`, `SetCallback`, `SetupUpdates`), generated from the JSDoc. |
+| `dist/index.d.ts` | The public entry — re-exports those types and declares the default export. |
+| `dist/main.d.cts` / `dist/index.d.cts` | The same declarations in CommonJS form, for `require()`. |
+
+Two details are worth knowing if you touch this pipeline:
+
+- **The package is dual-mode** (ESM + CommonJS), so the `exports` map in `package.json` points each condition at its own declaration file. Without the `types` conditions, TypeScript ignores the top-level `"types"` field and consumers get `TS2307: Cannot find module`.
+- **`src/index.ts` exists because of `new`.** The README, the demo and the tests all use `new VisualController({ ... })`, but TypeScript's declaration emit for a JSDoc function is always `declare function X(...)` — a call signature with no construct signature — and a JSDoc type literal cannot express `new (...)` either. Left alone, `new VisualController()` fails with `TS7009: 'new' expression, whose target lacks a construct signature`. So `src/index.ts` declares the default export with *both* a call signature and a construct signature. Both forms work at runtime too — `VisualController` returns the instance object, and a constructor returning an object hands that object back.
+
+> **CommonJS note.** This package's CommonJS build exports the controller directly (`module.exports = VisualController`), so the CommonJS declaration uses `export =`. TypeScript's `export =` cannot carry other exports — so the named types (`SetCallback`, `SetupUpdates`, `VisualControllerInstance`) are importable from the ESM entry only. The default export, and with it the whole instance type, works in both.
+
+`SetupUpdates` is typed as `Record<string, any>`, so `html.getApp('header').changeMessage('...')` type-checks without a cast — the component decides which methods it exposes.
+
 ## Development
 
 Setup and common commands:
