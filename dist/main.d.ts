@@ -2,7 +2,7 @@ export type SetCallback = (markers: {
     start: Text;
     end: Text;
 }, ...args: any) => string | void;
-export type SetupUpdates = Object;
+export type SetupUpdates = Record<string, any>;
 export type VisualControllerInstance = {
     set: SetCallback & ((fn: SetCallback, ...args: any[]) => void);
     publish: (alias: string, component: any, data?: object, extraParams?: object) => Promise<SetupUpdates | false>;
@@ -22,7 +22,7 @@ export type VisualControllerInstance = {
  */
 /**
  *  Object passed to `setupUpdates` from inside a published component.
- *  @typedef {Object} SetupUpdates
+ *  @typedef {Record<string, any>} SetupUpdates
  */
 /**
  *  Controller instance returned by `VisualController`.
