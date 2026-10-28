@@ -5,12 +5,18 @@
   "license": "MIT",
   "author": "Peter Naydenov",
   "main": "./src/main.js",
-  "types": "./dist/main.d.ts",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/visual-controller-for-vue3.esm.mjs",
-      "require": "./dist/visual-controller-for-vue3.cjs",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/visual-controller-for-vue3.esm.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/visual-controller-for-vue3.cjs"
+      },
       "default": "./dist/visual-controller-for-vue3.umd.js"
     },
     "./package.json": "./package.json",
@@ -23,7 +29,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "cover": "vitest run --coverage",
-    "types": "tsc"
+    "types": "tsc && node scripts/generate-cjs-types.mjs"
   },
   "repository": {
     "type": "git",
