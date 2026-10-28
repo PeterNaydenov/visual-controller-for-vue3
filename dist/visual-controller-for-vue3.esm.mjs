@@ -1,6 +1,6 @@
 import e from "ask-for-promise";
 import { createApp as t, createSSRApp as n } from "vue";
-//#region src/dim.js
+// src/dim.js
 function r() {
 	let e = {}, t = {};
 	function n(n, ...r) {
@@ -13,7 +13,7 @@ function r() {
 		s.setStartAfter(i), s.setEndBefore(a);
 		let c = {
 			isEmpty() {
-				return !i.isConnected || !a.isConnected ? !0 : (s.setStartAfter(i), s.setEndBefore(a), s.collapsed);
+				return !i.isConnected || !a.isConnected || (s.setStartAfter(i), s.setEndBefore(a), s.collapsed);
 			},
 			getContext() {
 				return i.isConnected && a.isConnected ? s.commonAncestorContainer : null;
@@ -25,7 +25,7 @@ function r() {
 		o && (t[o] = c), e[Object.keys(e).length] = c;
 	}
 	function r(n) {
-		if (!(typeof n != "string" && !Array.isArray(n))) return typeof n == "string" && n.includes(",") && (n = n.split(",").map((e) => e.trim())), Array.isArray(n) ? n.map((n) => t[n] || e[n]) : t[n] || e[n];
+		if (typeof n == "string" || Array.isArray(n)) return typeof n == "string" && n.includes(",") && (n = n.split(",").map((e) => e.trim())), Array.isArray(n) ? n.map((n) => t[n] || e[n]) : t[n] || e[n];
 	}
 	function i() {
 		let n = /* @__PURE__ */ new Set();
@@ -45,8 +45,7 @@ function r() {
 		aliases: a
 	};
 }
-//#endregion
-//#region src/main.js
+// src/main.js
 function i(i = {}) {
 	let a = {}, o = {}, s = r(), c = {
 		...i,
@@ -121,11 +120,8 @@ function i(i = {}) {
 			return;
 		}
 		let t = s.get(e);
-		if (!t) {
-			console.error(`Region "${e}" was not defined. Call html.set(...) first.`);
-			return;
-		}
-		return t.isEmpty();
+		if (!t) console.error(`Region "${e}" was not defined. Call html.set(...) first.`);
+		else return t.isEmpty();
 	}
 	function g() {
 		for (let e of Object.keys(a)) d(e);
@@ -143,5 +139,4 @@ function i(i = {}) {
 		reset: g
 	};
 }
-//#endregion
 export { i as default };
