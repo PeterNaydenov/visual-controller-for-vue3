@@ -2,6 +2,15 @@
 
 
 
+### 3.0.2 (2026-10-28)
+- [x] **Fix: TypeScript consumers could not resolve the package types at all.** `package.json#exports` had no `types` condition, so TypeScript ignored the top-level `"types"` field and every consumer using `moduleResolution: node16`, `nodenext` or `bundler` got `TS2307: Cannot find module '@peter.naydenov/visual-controller-for-vue3'`. The `exports` map now points each condition at its own declaration file — `dist/index.d.ts` for `import`, `dist/index.d.cts` for `require`.
+- [x] **Fix: `new VisualController()` did not type-check** (`TS7009: 'new' expression, whose target lacks a construct signature`). TypeScript's declaration emit for a JSDoc function is always `declare function X(...)` — a call signature with no construct signature — and a JSDoc type literal cannot express `new (...)` either, so the documented usage failed for every TypeScript consumer. A new type-only entry (`src/index.ts` → `dist/index.d.ts`) declares the default export with both a call signature and a construct signature. Both forms work at runtime — `VisualController` returns the instance object, and a constructor returning an object hands that object back.
+- [x] **Fix: `SetupUpdates` was typed as `Object`**, which made `html.getApp('header').changeMessage('...')` a type error. It is now `Record<string, any>`, so component-provided methods are reachable without a cast.
+- [x] CommonJS declarations (`dist/main.d.cts`, `dist/index.d.cts`) are generated next to the ESM ones, so `require()` consumers get types as well (`TS1479` otherwise).
+- [x] Fix: the test suite could not run. It created a second JSDOM instance and assigned it to `global.document`, which throws on jsdom 30 (`Cannot set property document of [object Window] which has only a getter`) — vitest's `jsdom` environment already provides those globals.
+
+
+
 ### 3.0.1 (2026-10-24)
 - [x] Dependencies update. Ask-for-Promise - v.3.2.1;
 
