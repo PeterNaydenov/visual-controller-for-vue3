@@ -25,7 +25,7 @@ import { createApp, createSSRApp } from 'vue'
 
 /**
  *  Object passed to `setupUpdates` from inside a published component.
- *  @typedef {Object} SetupUpdates
+ *  @typedef {Record<string, any>} SetupUpdates
  */
 
 /**
