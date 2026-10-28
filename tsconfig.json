@@ -13,9 +13,16 @@
     "strict": false,
     "moduleResolution": "bundler",
     "paths": {
-      "ask-for-promise": ["./node_modules/ask-for-promise/types.d.ts"],
-      "vue": ["./node_modules/vue/dist/vue.d.ts"]
+      "ask-for-promise": [
+        "./node_modules/ask-for-promise/types.d.ts"
+      ],
+      "vue": [
+        "./node_modules/vue/dist/vue.d.ts"
+      ]
     }
   },
-  "include": ["src/main.js"]
+  "include": [
+    "src/main.js",
+    "src/index.ts"
+  ]
 }
